@@ -1,0 +1,97 @@
+html {
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'antique roman', 'Georgia';
+    background-image: linear-gradient(135deg, #051F20, #1B5568, #328EA1);
+    color: #8c9dad;
+}
+.lesson-format {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(140, 157, 173, 0.1);
+    border: 10px solid rgba(140, 157, 173, 0.3);
+    margin: 100px 300px;
+    font-size: 2em;
+    /* box-shadow: 0 0 0 1px #8c9dad; */
+    border-radius: 0.1em;
+    /* box-shadow: 0 0 0.5rem 2.5px whitesmoke; */
+    padding: 0;
+}
+.link:hover {
+    color: darkslategray;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.lesson-format > div {
+    padding: 30px;
+}
+div > a {
+    color: inherit;
+    text-decoration: none;
+}
+@media only screen and (max-width: 1000px) {
+    .lesson-format {
+        margin: 100px 50px;
+    }
+}
+
+div.header > * {
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 15px;
+}
+#headerSubtext {
+    font-size: 1em;
+}
+.firstLayer {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.flashcard {
+    display: flex;
+    border: 4px solid yellow;
+    padding: 200px;
+    border: 10px solid rgba(140, 157, 173, 0.3);
+    background: rgba(140, 157, 173, 0.1);
+    border-radius: 0.1em;
+    font-size: 2em;
+}
+.flashLeft {
+    font-size: 18px;
+    color: black;
+    /* background-color: lightgray; */
+    padding: 10px;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+.buttons > button {
+    font-size: inherit;
+    font: inherit;
+    vertical-align: middle;
+    border: 3px solid rgba(120, 137, 153, 1);
+    background: rgba(140, 157, 173, 1);
+    border-radius: 0.5em;
+    color: darkslategray;
+    padding: 10px;
+    padding-top: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+@media only screen and (max-width: 1300px) {
+    .firstLayer {
+        flex-direction: column;
+        gap: 3em;
+        margin: 50px 0;
+        justify-content: unset;
+    }
+}

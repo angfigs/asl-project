@@ -1,0 +1,10 @@
+1. generate a random card on the left
+2. click on the card on the right to reveal the answer 
+3. click on next card to change both cards and reset to a new value on the left 
+-- shuffle cards will reset the whole thing and randomize the cards again
+
+
+/* background-image: linear-gradient(to right, #3d4955, #62768a, #8c9dad); */
+/* background-image: linear-gradient(#051F20) */
+/* background-color: #051F20; */
+/* background-image: linear-gradient(to right, #051F20, #1B5568, #328EA1);*/
