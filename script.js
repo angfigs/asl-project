@@ -24,7 +24,7 @@ function generate_alphabet() {
     return alphabet[alphabet_index]    
 }
 
-const generate_letter = document.getElementsByClassName('flashcard')[0]; 
+const generate_letter = document.getElementById('flashcard_alphabet'); 
 const generate_button = document.getElementById('generate_button');
 const generate_alphabet_button = document.getElementById('generate_alphabet');
 const letter_element = generate_letter.querySelector('.updated_letter');
@@ -41,14 +41,8 @@ generate_alphabet_button.addEventListener("click", function () {
     letter_element.textContent = generate_alphabet();
 });
 
+const flashcard_alphabet = document.getElementById('flashcard_alphabet');
 
-
-
-
-
-
-
-// load a random value on the left side - shuffle card function 
-// click the card and the answer is revealed in the right 
-// click the button to trigger the shuffle card - generate another random card
-// load a random value on left side  
+flashcard_alphabet.addEventListener('click', function () {
+    this.classList.toggle('opaque');
+});
