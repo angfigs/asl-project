@@ -65,7 +65,7 @@ div.header > * {
     gap: 5em;
 }
 
-#flashcard_alphabet {
+#flashcard {
     display: flex;
     height: 550px;
     width: 750px;
@@ -80,7 +80,7 @@ div.header > * {
 }
 
 
-#flashcard_alphabet.opaque {
+#flashcard.opaque {
     border: 10px solid rgba(100, 117, 133, 1);
     background-color: rgba(120, 137, 153, 1);
     color: rgba(120, 137, 153, 1);
