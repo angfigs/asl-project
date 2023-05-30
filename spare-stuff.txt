@@ -8,3 +8,14 @@
 /* background-image: linear-gradient(#051F20) */
 /* background-color: #051F20; */
 /* background-image: linear-gradient(to right, #051F20, #1B5568, #328EA1);*/
+
+// Add event listener to the button to generate a new letter or the alphabet in order
+generate_button.addEventListener("click", function () {
+    letter_element.textContent = generate_random_letter();
+    isButtonClicked = true;
+});
+
+generate_alphabet_button.addEventListener("click", function () {
+    letter_element.textContent = generate_alphabet();
+    hello()
+});
