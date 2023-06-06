@@ -19,3 +19,28 @@ generate_alphabet_button.addEventListener("click", function () {
     letter_element.textContent = generate_alphabet();
     hello()
 });
+
+// letter_element.textContent = generate_random_letter();
+
+// function create_alphabet() {
+//     for (let i = 65; i <= 90; i++) {
+//         const letter = String.fromCharCode(i);
+//         alphabet.push(letter);
+//     }
+//     return alphabet;
+// }
+
+// generate_alphabet_button.addEventListener('click', function() {
+//     letter_element.textContent = generate_alphabet()
+// });
+
+// generate_button.addEventListener('click', function() {
+//     letter_element.textContent = generate_random_letter();
+// });
+
+generate_button.addEventListener('click', function () {
+    previous_flashcard = current_flashcard;
+    previous_flashcard_list.push(previous_flashcard)
+    current_flashcard = generate_random_letter();
+    letter_element.textContent = current_flashcard;
+});

@@ -1,39 +1,31 @@
 const alphabet_object = {
-    A: 'sa',
-    B: 'sb',
-    C: 'sc',
-    D: '',
-    E: '',
-    F: '',
-    G: '',
-    H: '',
-    I: '',
-    J: '',
-    K: '',
-    L: '',
-    M: '',
-    N: '',
-    O: '',
-    P: '',
-    Q: '',
-    R: '',
-    S: '',
-    T: '',
-    U: '',
-    V: '',
-    W: '',
-    X: '',
-    Y: '',
-    Z: ''
+    A: 'a',
+    B: 'b',
+    C: 'c',
+    D: 'd',
+    E: 'e',
+    F: 'f',
+    G: 'g',
+    H: 'h',
+    I: 'i',
+    J: 'j',
+    K: 'k',
+    L: 'l',
+    M: 'm',
+    N: 'n',
+    O: 'o',
+    P: 'p',
+    Q: 'q',
+    R: 'r',
+    S: 's',
+    T: 't',
+    U: 'u',
+    V: 'v',
+    W: 'w',
+    X: 'x',
+    Y: 'y',
+    Z: 'z'
 };
-
-// function create_alphabet() {
-//     for (let i = 65; i <= 90; i++) {
-//         const letter = String.fromCharCode(i);
-//         alphabet.push(letter);
-//     }
-//     return alphabet;
-// }
 
 function create_alphabet(alphabet_obj) {
     let alphabet = []
@@ -42,8 +34,6 @@ function create_alphabet(alphabet_obj) {
     }
     return alphabet;
 }
-
-
 
 let alphabet = create_alphabet(alphabet_object)
 function generate_random_letter() {
@@ -62,44 +52,36 @@ function generate_alphabet() {
     return alphabet[alphabet_index]    
 }
 
-//make an object with key:value pairs
-//loop through the key pairs then return the value (img) 
-//graph that img to the const flashcard alphabet
-
-
-
 const generate_letter = document.getElementById('flashcard'); 
 const generate_button = document.getElementById('generate_button');
+const shuffle_cards_button = document.querySelector('.buttons button:last-of-type');
 const generate_alphabet_button = document.getElementById('generate_alphabet');
 // const letter_element = generate_letter.querySelector('.updated_letter');
 const previous_button = document.getElementById('prev_button')
 // Initialize the current flashcard value
-let current_flashcard = generate_random_letter();
 const letter_element = document.querySelector('.updated_letter');
-
 // Set the initial flashcard value
+let current_flashcard = generate_random_letter();
 letter_element.textContent = current_flashcard;
+
 
 let previous_flashcard_list = []
 let index = 1
 // Event listener for the previous flashcard button
 previous_button.addEventListener('click', function () {
-    console.log(previous_flashcard_list)
-    if (index === previous_flashcard_list.length) {
+    if (previous_flashcard_list.length === 0) {
+        letter_element.textContent = '';
+    }
+    else if (index === previous_flashcard_list.length) {
         letter_element.textContent = previous_flashcard_list[0];
-    }
-    else if (index < previous_flashcard_list.length) {
         index = 1;
+        previous_flashcard_list = [];
     }
-    else {
+    else if (index >= 1 && previous_flashcard_list.length != 0) {
         letter_element.textContent = previous_flashcard_list[previous_flashcard_list.length - index];
         index += 1;
     }
-    
 });
-
-// if the list reaches the end don't print out anymore and empty the list
-
 
 // Event listener for the alphabet button
 generate_alphabet_button.addEventListener('click', function () {
@@ -109,35 +91,27 @@ generate_alphabet_button.addEventListener('click', function () {
     letter_element.textContent = current_flashcard;
 });
 
-// Event listener for the next flashcard button
-generate_button.addEventListener('click', function () {
+// Event listener for the next/shuffle cards button
+const shuffle_cards = function () {
     previous_flashcard = current_flashcard;
     previous_flashcard_list.push(previous_flashcard)
     current_flashcard = generate_random_letter();
     letter_element.textContent = current_flashcard;
-});
+};
 
+generate_button.addEventListener('click', shuffle_cards);
+shuffle_cards_button.addEventListener('click', shuffle_cards);
 
-
-
-
-
-// letter_element.textContent = generate_random_letter();
-
-
-
-// generate_alphabet_button.addEventListener('click', function() {
-//     letter_element.textContent = generate_alphabet()
-// });
-
-// generate_button.addEventListener('click', function() {
-//     letter_element.textContent = generate_random_letter();
-// });
-
-
-// change the flashcard on click 
+// Change the flashcard on click 
 const flashcard = document.getElementById('flashcard');
 
 flashcard.addEventListener('click', function () {
     this.classList.toggle('opaque');
+    const current_value = letter_element.textContent;
+    if (current_value === current_flashcard) {
+        letter_element.textContent = alphabet_object[letter_element.textContent]; 
+    }
+    else {
+        letter_element.textContent = current_flashcard;
+    }
 });

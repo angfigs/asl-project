@@ -75,19 +75,14 @@ div.header > * {
     background-color: rgba(140, 157, 173, 0.1);
     transition: background-color 0.3s ease;
     border-radius: 0.1em;
-    font-size: 2em;
+    font-size: 6em;
     cursor: pointer;
 }
-
-
 #flashcard.opaque {
     border: 10px solid rgba(100, 117, 133, 1);
     background-color: rgba(120, 137, 153, 1);
-    color: rgba(120, 137, 153, 1);
+    color: rgba(200, 217, 233, 1);
 }
-
-
-
 .buttons {
     display: flex;
     gap: 3em;
