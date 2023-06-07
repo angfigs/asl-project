@@ -44,3 +44,61 @@ generate_button.addEventListener('click', function () {
     current_flashcard = generate_random_letter();
     letter_element.textContent = current_flashcard;
 });
+
+// Change the flashcard on click 
+const flashcard = document.getElementById('flashcard');
+
+// Function to display the image
+function displayImage(imagePath) {
+    // Create an <embed> or <object> element
+    const embedElement = document.createElement('embed');
+    // Set the source attribute to the image path
+    embedElement.setAttribute('src', imagePath);
+    // Set any additional attributes or styles as needed
+
+    // Append the embed element to the image container
+    flashcard.appendChild(embedElement);
+}
+
+flashcard.addEventListener('click', function () {
+    this.classList.toggle('opaque');
+    const current_value = letter_element.textContent;
+    if (current_value === current_flashcard) {
+        // letter_element.textContent = alphabet_object[letter_element.textContent]; 
+        const imagePath = alphabet_object[current_value];
+        letter_element.textContent = displayImage(imagePath);
+    }
+    else {
+        letter_element.textContent = current_flashcard;
+    }
+});
+
+const flashcard = document.getElementById('flashcard');
+
+function add_image(imagePath) {
+    const image_embed = document.createElement('embed');
+    image_embed.setAttribute('src', imagePath);
+
+    image_embed.style.width = '600px';
+    image_embed.style.height = '600px';
+
+    flashcard.appendChild(image_embed);
+}
+
+function display_image() {
+    const current_value = letter_element.textContent;
+    if (current_value === current_flashcard) {
+        letter_element.textContent = '';
+        const image_path = alphabet_object[current_value];
+        add_image(image_path);
+    } else {
+        console.log(current_value);
+        flashcard.removeChild(flashcard.children[1]);
+        letter_element.textContent = current_flashcard;
+    }
+};
+
+flashcard.addEventListener('click', function () {
+    this.classList.toggle('opaque');
+    display_image();
+});

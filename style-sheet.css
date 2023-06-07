@@ -78,10 +78,11 @@ div.header > * {
     font-size: 6em;
     cursor: pointer;
 }
+
 #flashcard.opaque {
     border: 10px solid rgba(100, 117, 133, 1);
     background-color: rgba(120, 137, 153, 1);
-    color: rgba(200, 217, 233, 1);
+    color: rgba(120, 137, 153, 1);
 }
 .buttons {
     display: flex;
@@ -100,8 +101,8 @@ div.header > * {
     text-align: center;
     cursor: pointer;
 }
-@media only screen and (max-width: 750px) {
-    .flashcard {
+@media only screen and (max-width: 785px) {
+    #flashcard {
         height: 550px;
         width: 450px;
     }

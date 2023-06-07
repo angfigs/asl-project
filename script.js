@@ -1,5 +1,5 @@
 const alphabet_object = {
-    A: 'a',
+    A: './images/a.png',
     B: 'b',
     C: 'c',
     D: 'd',
@@ -105,13 +105,33 @@ shuffle_cards_button.addEventListener('click', shuffle_cards);
 // Change the flashcard on click 
 const flashcard = document.getElementById('flashcard');
 
-flashcard.addEventListener('click', function () {
-    this.classList.toggle('opaque');
+function add_image(image_path) {
+    console.log(image_path)
+    const image = document.createElement('img');
+    image.src = image_path;
+
+    // Apply custom styles to the image
+    image.style.width = '750px';
+    image.style.height = '550px';
+
+    flashcard.appendChild(image);
+}
+
+function display_image() {
     const current_value = letter_element.textContent;
     if (current_value === current_flashcard) {
-        letter_element.textContent = alphabet_object[letter_element.textContent]; 
-    }
-    else {
+        letter_element.textContent = '';
+        const image_path = alphabet_object[current_value];
+        console.log(image_path)
+        add_image(image_path);
+    } else {
+        console.log(current_value);
+        flashcard.removeChild(flashcard.children[1]);
         letter_element.textContent = current_flashcard;
     }
+}
+
+flashcard.addEventListener('click', function () {
+    this.classList.toggle('opaque');
+    display_image();
 });
