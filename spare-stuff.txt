@@ -128,3 +128,7 @@ function add_image_element(image_path) {
 
     flashcard.appendChild(image);
 }
+
+const letter_element = generate_letter.querySelector('.updated_letter');
+
+this.classList.toggle('opaque');
