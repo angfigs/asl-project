@@ -12,7 +12,7 @@ body, html {
     flex-direction: column;
     background: rgba(140, 157, 173, 0.1);
     border: 10px solid rgba(140, 157, 173, 0.3);
-    margin: 100px 300px;
+    margin: 100px 200px;
     font-size: 2em;
     /* box-shadow: 0 0 0 1px #8c9dad; */
     border-radius: 0.1em;
@@ -36,7 +36,6 @@ div > a {
         margin: 100px 50px;
     }
 }
-
 .header {
     display: flex;
     flex-direction: column;

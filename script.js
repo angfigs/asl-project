@@ -28,123 +28,119 @@ const alphabet_object = {
     '': './images/alphabet/dance.gif',
 };
 
-function create_alphabet(alphabet_obj) {
-    let alphabet = []
+function generate_alphabet(alphabet_obj) {
+    let alphabet_list = [];
     for (let key in alphabet_obj) {
-        alphabet.push(key);
+        if (key === '') {
+            ;
+        } else {
+            alphabet_list.push(key);
+        }
     }
-    return alphabet;
+    return alphabet_list;
 }
 
-let alphabet = create_alphabet(alphabet_object)
+let alphabet = generate_alphabet(alphabet_object);
+let alphabet_index = -1;
+
+function shuffle_alphabet() {
+    alphabet_index++;
+    if (alphabet_index === 26) {
+        alphabet_index = 0;
+    }
+    return alphabet[alphabet_index];
+}
+
 function generate_random_letter() {
-    let alphabet_index = -1
     const random_index = Math.floor(Math.random() * alphabet.length);
     const random_letter = alphabet[random_index];
     return random_letter;
 }
 
-alphabet_index = -1
-function generate_alphabet() {
-    alphabet_index++
-    if (alphabet_index === 26) {
-        alphabet_index = 0
-    }
-    return alphabet[alphabet_index]    
-}
-
-const generate_letter = document.getElementById('flashcard'); 
-const generate_button = document.getElementById('generate_button');
+const next_card_button = document.getElementById('next_button');
 const shuffle_cards_button = document.querySelector('.buttons button:last-of-type');
-const generate_alphabet_button = document.getElementById('generate_alphabet');
-const previous_button = document.getElementById('prev_button')
-// Initialize the current flashcard value
-const letter_element = document.querySelector('.updated_letter');
-// Set the initial flashcard value
-let current_flashcard = generate_random_letter();
-letter_element.textContent = current_flashcard;
-
-// Change the flashcard on click 
+const shuffle_alphabet_button = document.getElementById('shuffle_alphabet_button');
+const previous_button = document.getElementById('previous_button');
 const flashcard = document.getElementById('flashcard');
+const current_letter = document.querySelector('.updated_letter');
 
-function add_image_element(image_path) {
+let flashcard_letter = generate_random_letter();
+current_letter.textContent = flashcard_letter;
+
+let previous_flashcard_list = [];
+let index = 1;
+previous_button.addEventListener('click', function () {
+    remove_image();
+    if (previous_flashcard_list.length === 0) {
+        flashcard_letter = '';
+        current_letter.textContent = flashcard_letter;
+    }
+    else if (index === previous_flashcard_list.length) {
+        flashcard_letter = previous_flashcard_list[0];
+        current_letter.textContent = flashcard_letter
+        index = 1;
+        previous_flashcard_list = [];
+    }
+    else if (index >= 1 && previous_flashcard_list.length != 0) {
+        flashcard_letter = previous_flashcard_list[previous_flashcard_list.length - index];
+        current_letter.textContent = flashcard_letter;
+        index++;
+    }
+});
+
+shuffle_alphabet_button.addEventListener('click', function () {
+    remove_image();
+    previous_flashcard = flashcard_letter;
+    previous_flashcard_list.push(previous_flashcard)
+    flashcard_letter = shuffle_alphabet();
+    current_letter.textContent = flashcard_letter;
+});
+
+function shuffle_cards() {
+    remove_image();
+    previous_flashcard = flashcard_letter;
+    previous_flashcard_list.push(previous_flashcard)
+    flashcard_letter = generate_random_letter();
+    current_letter.textContent = flashcard_letter;
+};
+
+next_card_button.addEventListener('click', shuffle_cards);
+shuffle_cards_button.addEventListener('click', shuffle_cards);
+
+function add_image(image_path) {
     const image = document.createElement('img');
     image.src = image_path;
     image.style.width = '750px';
     image.style.height = '550px';
-    image.style.opacity = '0'; 
+    image.style.opacity = '0';
     image.style.transition = 'opacity 1s ease-in-out';
     flashcard.appendChild(image);
     setTimeout(() => {
         image.style.opacity = '1';
     }, 10);
-}
+};
 
-//Check if an image element already exists and remove it
 function remove_image() {
-    const existingImage = flashcard.querySelector('img');
-    if (existingImage) {
-        flashcard.removeChild(existingImage);
+    const existing_image = flashcard.querySelector('img');
+    if (existing_image) {
+        flashcard.removeChild(existing_image);
     }
-}
+};
 
-let img_on = true
+let img_on = true;
 function display_image() {
     if (img_on) {
-        letter_element.textContent = '';
-        const image_path = alphabet_object[current_flashcard];
-        add_image_element(image_path);
+        const image_path = alphabet_object[flashcard_letter];
+        add_image(image_path);
+        current_letter.textContent = '';
         img_on = false;
     } else {
         remove_image();
-        letter_element.textContent = current_flashcard;
+        current_letter.textContent = flashcard_letter;
         img_on = true;
     }
-}
+};
 
 flashcard.addEventListener('click', function () {
     display_image();
 });
-
-let previous_flashcard_list = []
-let index = 1
-// Event listener for the previous flashcard button
-previous_button.addEventListener('click', function () {
-    remove_image();
-    if (previous_flashcard_list.length === 0) {
-        current_flashcard = '';
-        letter_element.textContent = current_flashcard;
-    }
-    else if (index === previous_flashcard_list.length) {
-        current_flashcard = previous_flashcard_list[0];
-        letter_element.textContent = current_flashcard
-        index = 1;
-        previous_flashcard_list = [];
-    }
-    else if (index >= 1 && previous_flashcard_list.length != 0) {
-        current_flashcard = previous_flashcard_list[previous_flashcard_list.length - index];
-        letter_element.textContent = current_flashcard;
-        index++;
-    }
-});
-
-// Event listener for the alphabet button
-generate_alphabet_button.addEventListener('click', function () {
-    remove_image();
-    previous_flashcard = current_flashcard;
-    previous_flashcard_list.push(previous_flashcard)
-    current_flashcard = generate_alphabet();
-    letter_element.textContent = current_flashcard;
-});
-
-// Event listener for the next/shuffle cards button
-function shuffle_cards() {
-    remove_image();
-    previous_flashcard = current_flashcard;
-    previous_flashcard_list.push(previous_flashcard)
-    current_flashcard = generate_random_letter();
-    letter_element.textContent = current_flashcard;
-};
-
-generate_button.addEventListener('click', shuffle_cards);
-shuffle_cards_button.addEventListener('click', shuffle_cards);
