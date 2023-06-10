@@ -38,7 +38,7 @@ function create_alphabet(alphabet_obj) {
 
 let alphabet = create_alphabet(alphabet_object)
 function generate_random_letter() {
-    alphabet_index = -1
+    let alphabet_index = -1
     const random_index = Math.floor(Math.random() * alphabet.length);
     const random_letter = alphabet[random_index];
     return random_letter;
@@ -57,7 +57,6 @@ const generate_letter = document.getElementById('flashcard');
 const generate_button = document.getElementById('generate_button');
 const shuffle_cards_button = document.querySelector('.buttons button:last-of-type');
 const generate_alphabet_button = document.getElementById('generate_alphabet');
-// const letter_element = generate_letter.querySelector('.updated_letter');
 const previous_button = document.getElementById('prev_button')
 // Initialize the current flashcard value
 const letter_element = document.querySelector('.updated_letter');
@@ -74,13 +73,12 @@ function add_image_element(image_path) {
     image.style.width = '750px';
     image.style.height = '550px';
     image.style.opacity = '0'; 
-    image.style.transition = 'opacity 0.5s ease-in-out';
+    image.style.transition = 'opacity 1s ease-in-out';
     flashcard.appendChild(image);
     setTimeout(() => {
         image.style.opacity = '1';
     }, 10);
 }
-
 
 //Check if an image element already exists and remove it
 function remove_image() {
@@ -90,12 +88,11 @@ function remove_image() {
     }
 }
 
-img_on = true
+let img_on = true
 function display_image() {
-    if (img_on === true) {
+    if (img_on) {
         letter_element.textContent = '';
         const image_path = alphabet_object[current_flashcard];
-        remove_image();
         add_image_element(image_path);
         img_on = false;
     } else {
@@ -106,7 +103,6 @@ function display_image() {
 }
 
 flashcard.addEventListener('click', function () {
-    this.classList.toggle('opaque');
     display_image();
 });
 
@@ -114,6 +110,7 @@ let previous_flashcard_list = []
 let index = 1
 // Event listener for the previous flashcard button
 previous_button.addEventListener('click', function () {
+    remove_image();
     if (previous_flashcard_list.length === 0) {
         current_flashcard = '';
         letter_element.textContent = current_flashcard;
@@ -133,6 +130,7 @@ previous_button.addEventListener('click', function () {
 
 // Event listener for the alphabet button
 generate_alphabet_button.addEventListener('click', function () {
+    remove_image();
     previous_flashcard = current_flashcard;
     previous_flashcard_list.push(previous_flashcard)
     current_flashcard = generate_alphabet();
@@ -141,6 +139,7 @@ generate_alphabet_button.addEventListener('click', function () {
 
 // Event listener for the next/shuffle cards button
 function shuffle_cards() {
+    remove_image();
     previous_flashcard = current_flashcard;
     previous_flashcard_list.push(previous_flashcard)
     current_flashcard = generate_random_letter();

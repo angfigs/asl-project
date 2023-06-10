@@ -1,12 +1,9 @@
-html {
-    min-height: 100vh;
-    width: 100%;
-    box-sizing: border-box;
-}
-body {
+body, html {
     font-family: 'antique roman', 'Georgia';
     background-image: linear-gradient(135deg, #051F20, #1B5568, #328EA1);
     color: #8c9dad;
+    min-height: 100vh;
+    margin: 0;
 }
 .lesson-format {
     display: flex;
@@ -52,6 +49,9 @@ div.header > * {
     text-align: center;
     padding-top: 15px;
 }
+.header div:first-child {
+    padding-top: 30px;
+}
 #header_subtext {
     font-size: 1em;
     width: 200px;
@@ -62,9 +62,8 @@ div.header > * {
     align-items: center;
     flex-direction: column;
     margin-top: 60px;
-    gap: 5em;
+    justify-content: space-between;
 }
-
 #flashcard {
     display: flex;
     height: 550px;
@@ -78,7 +77,6 @@ div.header > * {
     font-size: 6em;
     cursor: pointer;
 }
-
 #flashcard.opaque {
     border: 10px solid rgba(100, 117, 133, 1);
     background-color: rgba(120, 137, 153, 1);
@@ -111,4 +109,19 @@ div.header > * {
         justify-content: center;
         align-items: center;
     }
+}
+@media only screen and (min-height: 300px) {
+    .first_layer {
+        gap: 5em;
+    }
+}
+.footer {
+    display: flex;
+    background-image: linear-gradient(135deg, #001933, #002147, #04080F);
+    font-family: "antique roman", "Georgia";
+    font-size: 1rem;
+    padding: 30px 0px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
