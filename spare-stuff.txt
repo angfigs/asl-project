@@ -132,3 +132,15 @@ function add_image_element(image_path) {
 const letter_element = generate_letter.querySelector('.updated_letter');
 
 this.classList.toggle('opaque');
+
+let img_on = false;
+if (img_on) {
+    const image_path = alphabet_object[flashcard_letter];
+    add_image(image_path);
+    current_letter.textContent = '';
+    img_on = false;
+} else {
+    remove_image();
+    current_letter.textContent = flashcard_letter;
+    img_on = true;
+};
