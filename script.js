@@ -38,24 +38,25 @@ function generate_alphabet(alphabet_obj) {
         }
     }
     return alphabet_list;
-}
+};
 
 let alphabet = generate_alphabet(alphabet_object);
-let alphabet_index = -1;
 
+let alphabet_index = -1;
 function shuffle_alphabet() {
     alphabet_index++;
     if (alphabet_index === 26) {
         alphabet_index = 0;
     }
     return alphabet[alphabet_index];
-}
+};
 
 function generate_random_letter() {
+    alphabet_index = -1;
     const random_index = Math.floor(Math.random() * alphabet.length);
     const random_letter = alphabet[random_index];
     return random_letter;
-}
+};
 
 const next_card_button = document.getElementById('next_button');
 const shuffle_cards_button = document.querySelector('.buttons button:last-of-type');
@@ -70,6 +71,7 @@ current_letter.textContent = flashcard_letter;
 let previous_flashcard_list = [];
 let index = 1;
 previous_button.addEventListener('click', function () {
+    alphabet_index = -1;
     remove_image();
     if (previous_flashcard_list.length === 0) {
         flashcard_letter = '';
@@ -91,7 +93,7 @@ previous_button.addEventListener('click', function () {
 shuffle_alphabet_button.addEventListener('click', function () {
     remove_image();
     previous_flashcard = flashcard_letter;
-    previous_flashcard_list.push(previous_flashcard)
+    previous_flashcard_list.push(previous_flashcard);
     flashcard_letter = shuffle_alphabet();
     current_letter.textContent = flashcard_letter;
 });
@@ -99,7 +101,7 @@ shuffle_alphabet_button.addEventListener('click', function () {
 function shuffle_cards() {
     remove_image();
     previous_flashcard = flashcard_letter;
-    previous_flashcard_list.push(previous_flashcard)
+    previous_flashcard_list.push(previous_flashcard);
     flashcard_letter = generate_random_letter();
     current_letter.textContent = flashcard_letter;
 };
@@ -127,17 +129,15 @@ function remove_image() {
     }
 };
 
-let img_on = true;
 function display_image() {
-    if (img_on) {
+    const existing_image = flashcard.querySelector('img');
+    if (existing_image) {
+        remove_image();
+        current_letter.textContent = flashcard_letter;
+    } else {
         const image_path = alphabet_object[flashcard_letter];
         add_image(image_path);
         current_letter.textContent = '';
-        img_on = false;
-    } else {
-        remove_image();
-        current_letter.textContent = flashcard_letter;
-        img_on = true;
     }
 };
 
