@@ -1,114 +1,76 @@
-const alphabet_object = {
-    A: './images/alphabet/a.png',
-    B: './images/alphabet/b.png',
-    C: './images/alphabet/c.png',
-    D: './images/alphabet/d.png',
-    E: './images/alphabet/e.png',
-    F: './images/alphabet/f.png',
-    G: './images/alphabet/g.png',
-    H: './images/alphabet/h.png',
-    I: './images/alphabet/i.png',
-    J: './images/alphabet/j.gif',
-    K: './images/alphabet/k.png',
-    L: './images/alphabet/l.png',
-    M: './images/alphabet/m.png',
-    N: './images/alphabet/n.png',
-    O: './images/alphabet/o.png',
-    P: './images/alphabet/p.png',
-    Q: './images/alphabet/q.png',
-    R: './images/alphabet/r.png',
-    S: './images/alphabet/s.png',
-    T: './images/alphabet/t.png',
-    U: './images/alphabet/u.png',
-    V: './images/alphabet/v.png',
-    W: './images/alphabet/w.png',
-    X: './images/alphabet/x.png',
-    Y: './images/alphabet/y.png',
-    Z: './images/alphabet/z.gif',
-    '': './images/alphabet/dance.gif',
-};
+//SHARED JS 
 
-function generate_alphabet(alphabet_obj) {
-    let alphabet_list = [];
-    for (let key in alphabet_obj) {
+//function to create a list of all the key values in an object 
+function create_key_list(object) {
+    let key_list = [];
+    for (let key in object) {
         if (key === '') {
             ;
         } else {
-            alphabet_list.push(key);
+            key_list.push(key);
         }
     }
-    return alphabet_list;
+    return key_list;
 };
 
-let alphabet = generate_alphabet(alphabet_object);
-
-let alphabet_index = -1;
-function shuffle_alphabet() {
-    alphabet_index++;
-    if (alphabet_index === 26) {
-        alphabet_index = 0;
+//function to shuffle items in list of key
+let list_index = -1;
+function shuffle_key_list(key_list) {
+    list_index++;
+    if (list_index === 26) {
+        list_index = 0;
     }
-    return alphabet[alphabet_index];
+    return key_list[list_index];
 };
 
-function generate_random_letter() {
-    alphabet_index = -1;
-    const random_index = Math.floor(Math.random() * alphabet.length);
-    const random_letter = alphabet[random_index];
-    return random_letter;
+//function to get random element from list
+function get_random_element(key_list) {
+    list_index = -1;
+    const random_index = Math.floor(Math.random() * key_list.length);
+    const random_element = key_list[random_index];
+    return random_element;
 };
 
-const next_card_button = document.getElementById('next_button');
-const shuffle_cards_button = document.querySelector('.buttons button:last-of-type');
 const shuffle_alphabet_button = document.getElementById('shuffle_alphabet_button');
 const previous_button = document.getElementById('previous_button');
+const next_card_button = document.getElementById('next_button');
+const shuffle_cards_button = document.querySelector('.buttons button:last-of-type');
 const flashcard = document.getElementById('flashcard');
-const current_letter = document.querySelector('.updated_letter');
+const current_output = document.querySelector('.updated_output');
 
-let flashcard_letter = generate_random_letter();
-current_letter.textContent = flashcard_letter;
-
-let previous_flashcard_list = [];
-let index = 1;
+//function to create previous button event listener
+let previous_flashcard_output = [];
+let flashcard_index = 1;
 previous_button.addEventListener('click', function () {
-    alphabet_index = -1;
+    list_index = -1;
     remove_image();
-    if (previous_flashcard_list.length === 0) {
-        flashcard_letter = '';
-        current_letter.textContent = flashcard_letter;
+    if (previous_flashcard_output.length === 0) {
+        flashcard_output = '';
+        current_output.textContent = flashcard_output;
     }
-    else if (index === previous_flashcard_list.length) {
-        flashcard_letter = previous_flashcard_list[0];
-        current_letter.textContent = flashcard_letter
-        index = 1;
-        previous_flashcard_list = [];
+    else if (flashcard_index === previous_flashcard_output.length) {
+        flashcard_output = previous_flashcard_output[0];
+        current_output.textContent = flashcard_output
+        flashcard_index = 1;
+        previous_flashcard_output = [];
     }
-    else if (index >= 1 && previous_flashcard_list.length != 0) {
-        flashcard_letter = previous_flashcard_list[previous_flashcard_list.length - index];
-        current_letter.textContent = flashcard_letter;
-        index++;
+    else if (flashcard_index >= 1 && previous_flashcard_output.length != 0) {
+        flashcard_output = previous_flashcard_output[previous_flashcard_output.length - flashcard_index];
+        current_output.textContent = flashcard_output;
+        flashcard_index++;
     }
 });
 
-shuffle_alphabet_button.addEventListener('click', function () {
+//function to output random shuffle from the list of keys
+function shuffle_cards(key_list) {
     remove_image();
-    previous_flashcard = flashcard_letter;
-    previous_flashcard_list.push(previous_flashcard);
-    flashcard_letter = shuffle_alphabet();
-    current_letter.textContent = flashcard_letter;
-});
-
-function shuffle_cards() {
-    remove_image();
-    previous_flashcard = flashcard_letter;
-    previous_flashcard_list.push(previous_flashcard);
-    flashcard_letter = generate_random_letter();
-    current_letter.textContent = flashcard_letter;
+    previous_flashcard = flashcard_output;
+    previous_flashcard_output.push(previous_flashcard);
+    flashcard_output = get_random_element(key_list);
+    current_output.textContent = flashcard_output;
 };
 
-next_card_button.addEventListener('click', shuffle_cards);
-shuffle_cards_button.addEventListener('click', shuffle_cards);
-
+//function to create img element
 function add_image(image_path) {
     const image = document.createElement('img');
     image.src = image_path;
@@ -122,6 +84,7 @@ function add_image(image_path) {
     }, 10);
 };
 
+//function to remove img if exists
 function remove_image() {
     const existing_image = flashcard.querySelector('img');
     if (existing_image) {
@@ -129,15 +92,16 @@ function remove_image() {
     }
 };
 
+//function to display img on web page
 function display_image() {
     const existing_image = flashcard.querySelector('img');
     if (existing_image) {
         remove_image();
-        current_letter.textContent = flashcard_letter;
+        current_output.textContent = flashcard_output;
     } else {
-        const image_path = alphabet_object[flashcard_letter];
+        const image_path = alphabet_object[flashcard_output];
         add_image(image_path);
-        current_letter.textContent = '';
+        current_output.textContent = '';
     }
 };
 
