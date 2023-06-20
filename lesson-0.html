@@ -21,7 +21,7 @@
             </div>
 
             
-            <div id='flashcard'><span class='updated_output'></span></div>
+            <div class='flashcard'><span class='updated_output'></span></div>
             
             <div class="footer">Page Made by A</div>
         </div>
@@ -69,10 +69,13 @@
                 current_output.textContent = flashcard_output;
             });
             next_card_button.addEventListener('click', () => {
-                shuffle_cards(alphabet)
+                shuffle_cards(alphabet);
             });
             shuffle_cards_button.addEventListener('click', () => { 
-                shuffle_cards(alphabet)
+                shuffle_cards(alphabet);
+            });
+            flashcard.addEventListener('click', () => {
+                display_image(alphabet_object);
             });
         </script>
     </body>

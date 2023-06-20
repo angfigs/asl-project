@@ -63,7 +63,7 @@ div.header > * {
     margin-top: 60px;
     justify-content: space-between;
 }
-#flashcard {
+.flashcard {
     display: flex;
     height: 550px;
     width: 750px;
@@ -76,7 +76,10 @@ div.header > * {
     font-size: 6em;
     cursor: pointer;
 }
-#flashcard.opaque {
+#flashcard_small_font {
+    font-size: 4em;
+}
+.flashcard.opaque {
     border: 10px solid rgba(100, 117, 133, 1);
     background-color: rgba(120, 137, 153, 1);
     color: rgba(120, 137, 153, 1);

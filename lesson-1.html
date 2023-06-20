@@ -15,62 +15,61 @@
     </div>
     <div class='first_layer'>
         <div class='buttons'>
+
+
+
             <button id='shuffle_alphabet_button'>Shuffle Alphabet</button>
+
+
+
+
             <button id='previous_button'>Previous Card</button>
             <button id='next_button'>Next Card</button>
             <button>Shuffle Cards</button>
         </div>
-        <div id='flashcard'><span class='updated_output'></span></div>
+        <div id='flashcard_small_font' class='flashcard'><span class='updated_output'></span></div>
         <div class="footer">Page Made by A</div>
     </div>
     <script src='script.js'></script>
     <script>
-        const alphabet_object = {
-            '': './images/alphabet/a.png',
-            B: './images/alphabet/b.png',
-            C: './images/alphabet/c.png',
-            D: './images/alphabet/d.png',
-            E: './images/alphabet/e.png',
-            F: './images/alphabet/f.png',
-            G: './images/alphabet/g.png',
-            H: './images/alphabet/h.png',
-            I: './images/alphabet/i.png',
-            J: './images/alphabet/j.gif',
-            K: './images/alphabet/k.png',
-            L: './images/alphabet/l.png',
-            M: './images/alphabet/m.png',
-            N: './images/alphabet/n.png',
-            O: './images/alphabet/o.png',
-            P: './images/alphabet/p.png',
-            Q: './images/alphabet/q.png',
-            R: './images/alphabet/r.png',
-            S: './images/alphabet/s.png',
-            T: './images/alphabet/t.png',
-            U: './images/alphabet/u.png',
-            V: './images/alphabet/v.png',
-            W: './images/alphabet/w.png',
-            X: './images/alphabet/x.png',
-            Y: './images/alphabet/y.png',
-            Z: './images/alphabet/z.gif',
+        const fs_words_object = {
+            'J-A-N-U-A-R-Y': '',
+            'F-E-B-R-U-A-R-Y': '',
+            'M-A-R-C-H': '',
+            'A-P-R-I-L': '',
+            'M-A-Y': '',
+            'J-U-N-E': '',
+            'J-U-L-Y': '',
+            'A-U-G-U-S-T': '',
+            'S-E-P-T-E-M-B-E-R': '',
+            'O-C-T-O-B-E-R': '',
+            'N-O-V-E-M-B-E-R': '',
+            'D-E-C-E-M-B-E-R': '',
             '': './images/alphabet/dance.gif',
-        };
+            };
 
-        let alphabet = create_key_list(alphabet_object);
-        let flashcard_output = get_random_element(alphabet);
+        let fs_words = create_key_list(fs_words_object);
+        let flashcard_output = get_random_element(fs_words);
         current_output.textContent = flashcard_output;
 
         shuffle_alphabet_button.addEventListener('click', function () {
                 remove_image();
                 previous_flashcard = flashcard_output;
                 previous_flashcard_output.push(previous_flashcard);
-                flashcard_output = shuffle_key_list(alphabet);
+                flashcard_output = shuffle_key_list(fs_words);
                 current_output.textContent = flashcard_output;
             });
+
+
+
         next_card_button.addEventListener('click', () => {
-            shuffle_cards(alphabet)
+            shuffle_cards(fs_words);
         });
         shuffle_cards_button.addEventListener('click', () => {
-            shuffle_cards(alphabet)
+            shuffle_cards(fs_words);
+        });
+        flashcard.addEventListener('click', () => {
+            display_image(fs_words_object);
         });
     </script>
 </body>

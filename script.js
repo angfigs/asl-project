@@ -17,7 +17,7 @@ function create_key_list(object) {
 let list_index = -1;
 function shuffle_key_list(key_list) {
     list_index++;
-    if (list_index === 26) {
+    if (list_index === key_list.length) {
         list_index = 0;
     }
     return key_list[list_index];
@@ -35,7 +35,7 @@ const shuffle_alphabet_button = document.getElementById('shuffle_alphabet_button
 const previous_button = document.getElementById('previous_button');
 const next_card_button = document.getElementById('next_button');
 const shuffle_cards_button = document.querySelector('.buttons button:last-of-type');
-const flashcard = document.getElementById('flashcard');
+const flashcard = document.getElementsByClassName('flashcard')[0];
 const current_output = document.querySelector('.updated_output');
 
 //function to create previous button event listener
@@ -93,18 +93,14 @@ function remove_image() {
 };
 
 //function to display img on web page
-function display_image() {
+function display_image(object) {
     const existing_image = flashcard.querySelector('img');
     if (existing_image) {
         remove_image();
         current_output.textContent = flashcard_output;
     } else {
-        const image_path = alphabet_object[flashcard_output];
+        const image_path = object[flashcard_output];
         add_image(image_path);
         current_output.textContent = '';
     }
 };
-
-flashcard.addEventListener('click', function () {
-    display_image();
-});
