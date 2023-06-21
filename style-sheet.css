@@ -78,6 +78,7 @@ div.header > * {
 }
 #flashcard_small_font {
     font-size: 4em;
+    text-align: center;
 }
 .flashcard.opaque {
     border: 10px solid rgba(100, 117, 133, 1);

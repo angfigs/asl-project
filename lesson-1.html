@@ -15,14 +15,6 @@
     </div>
     <div class='first_layer'>
         <div class='buttons'>
-
-
-
-            <button id='shuffle_alphabet_button'>Shuffle Alphabet</button>
-
-
-
-
             <button id='previous_button'>Previous Card</button>
             <button id='next_button'>Next Card</button>
             <button>Shuffle Cards</button>
@@ -32,36 +24,72 @@
     </div>
     <script src='script.js'></script>
     <script>
+        let img_path = './images/fs/alphabet.png';
         const fs_words_object = {
-            'J-A-N-U-A-R-Y': '',
-            'F-E-B-R-U-A-R-Y': '',
-            'M-A-R-C-H': '',
-            'A-P-R-I-L': '',
-            'M-A-Y': '',
-            'J-U-N-E': '',
-            'J-U-L-Y': '',
-            'A-U-G-U-S-T': '',
-            'S-E-P-T-E-M-B-E-R': '',
-            'O-C-T-O-B-E-R': '',
-            'N-O-V-E-M-B-E-R': '',
-            'D-E-C-E-M-B-E-R': '',
-            '': './images/alphabet/dance.gif',
-            };
+            'J-A-N-U-A-R-Y': img_path,
+            'F-E-B-R-U-A-R-Y': img_path,
+            'M-A-R-C-H': img_path,
+            'A-P-R-I-L': img_path,
+            'M-A-Y': img_path,
+            'J-U-N-E': img_path,
+            'J-U-L-Y': img_path,
+            'A-U-G-U-S-T': img_path,
+            'S-E-P-T-E-M-B-E-R': img_path,
+            'O-C-T-O-B-E-R': img_path,
+            'N-O-V-E-M-B-E-R': img_path,
+            'D-E-C-E-M-B-E-R': img_path,
+            'S-U-N-D-A-Y': img_path,
+            'M-O-N-D-A-Y': img_path,
+            'T-U-E-S-D-A-Y': img_path,
+            'W-E-D-N-E-S-D-A-Y': img_path,
+            'T-H-U-R-S-D-A-Y': img_path,
+            'F-R-I-D-A-Y': img_path,
+            'S-A-T-U-R-D-A-Y': img_path,
+            'A-L-A-N': img_path,
+            'B-R-E-T': img_path,
+            'C-H-A-D': img_path,
+            'D-A-L-E': img_path,
+            'E-R-I-C': img_path,
+            'F-R-E-D-A': img_path,
+            'G-A-R-T-H': img_path,
+            'H-A-R-R-Y': img_path,
+            'I-R-V-I-N': img_path,
+            'J-E-S-S-I-E': img_path,
+            'K-A-R-L-I-E': img_path,
+            'L-U-T-H-O-R': img_path,
+            'M-A-R-T-I-N': img_path,
+            'N-A-T-H-A-N': img_path,
+            'O-T-H-E-L-L-O': img_path,
+            'P-R-E-S-T-O-N': img_path,
+            'Q-U-E-N-T-I-N': img_path,
+            'R-O-X-A-N-N-E': img_path,
+            'S-U-Z-A-N-N-E': img_path,
+            'T-H-E-O-D-O-R-A': img_path,
+            'V-I-C-T-O-R-I-A': img_path,
+            'W-I-N-I-F-R-E-D': img_path,
+            'Y-A-N-A-M-A-R-I': img_path,
+            'A-T-T-I-C': img_path,
+            'Z-O-O': img_path,
+            'P-L-A-S-T-I-C': img_path,
+            'S-T-E-R-E-O': img_path,
+            'T-E-L-L-E-R': img_path,
+            'T-O-Y': img_path,
+            'Y-A-R-D': img_path,
+            'P-R-O-M': img_path,
+            'P-O-O-L': img_path,
+            'G-U-I-D-E': img_path,
+            'G-R-A-N-D': img_path,
+            'C-A-L-I-F-O-R-N-I-A': img_path,
+            'C-O-N-T-R-O-V-E-R-S-Y': img_path,
+            'M-I-S-U-N-D-E-R-S-T-A-N-D': img_path,
+            'T-R-A-N-S-P-O-R-T-A-T-I-O-N': img_path,
+            'S-P-I-D-E-R-M-A-N': img_path,
+            '': './images/dance.gif',
+        };
 
         let fs_words = create_key_list(fs_words_object);
         let flashcard_output = get_random_element(fs_words);
         current_output.textContent = flashcard_output;
-
-        shuffle_alphabet_button.addEventListener('click', function () {
-                remove_image();
-                previous_flashcard = flashcard_output;
-                previous_flashcard_output.push(previous_flashcard);
-                flashcard_output = shuffle_key_list(fs_words);
-                current_output.textContent = flashcard_output;
-            });
-
-
-
         next_card_button.addEventListener('click', () => {
             shuffle_cards(fs_words);
         });
