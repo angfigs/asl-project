@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Love This</title>
+        <link rel="stylesheet" href="style-sheet.css">
+    </head>
+    <body>
+        <nav id="navBar">
+    <div class="navBarLeft linkHoverColor"><a href="https://www.goodreads.com/series/216281-the-green-bone-saga">The
+            Green Bone Saga by Fonda Lee</a></div>
+    <div class="navBarRight">
+        <div class="dropDownNav">
+            <div class="linkHoverColor">Special Thanks</div>
+            <div class="dropDownMenu" id="thanksMenuWidth">
+                <a href="https://www.fondalee.com/about-fonda-lee/" id="dropDownFirstLink" class="linkHoverColor">Huge
+                    thanks to Fonda Lee for being so brilliant and crafting such a fantastic series!</a>
+                <a href="https://cjmerwild.com/" class="linkHoverColor">Twice Lucky artwork by C.J. Merwild.</a>
+                <a href="https://botanicaxu.artstation.com/" class="linkHoverColor">Second background artwork by Botanica Xu.</a>
+            </div>
+        </div>
+        <div class="dropDownNav">
+            <div class="linkHoverColor">About</div>
+            <div class="dropDownMenu" id="aboutMenuWidth">
+                <a href="https://www.fondalee.com/about-fonda-lee/" id="dropDownFirstLink" class="linkHoverColor">Fonda
+                    Lee, the Author</a>
+                <a href="https://www.goodreads.com/book/show/43587154-jade-city" class="linkHoverColor">Jade City (The
+                    Green Bone Saga, 1)</a>
+                <a href="https://www.goodreads.com/book/show/41716919-jade-war" class="linkHoverColor">Jade War (The
+                    Green Bone Saga, 2)</a>
+                <a href="https://www.goodreads.com/book/show/51057191-jade-legacy" class="linkHoverColor">Jade Legacy
+                    (The Green Bone Saga, 3)</a>
+                <a href="https://www.goodreads.com/en/book/show/57951331" class="linkHoverColor">The Jade Setter of
+                    Janloon (Standalone Novella)</a>
+            </div>
+        </div>
+        <div class="dropDownNav">
+            <div class="linkHoverColor">Buy Book One</div>
+            <div class="dropDownMenu">
+                <a href="https://www.indiebound.org/book/9780316440868" id="dropDownFirstLink"
+                    class="linkHoverColor">Indiebound</a>
+                <a href="https://bookshop.org/" class="linkHoverColor">Bookshop.org</a>
+                <a href="https://www.amazon.com/Jade-City-Fonda-Lee/dp/0316440868/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1494350029&sr=8-1"
+                    class="linkHoverColor">Amazon</a>
+                <a href="https://www.barnesandnoble.com/w/jade-city-fonda-lee/1125984281?ean=9780316440868"
+                    class="linkHoverColor">Barnes & Noble</a>
+                <a href="https://www.audible.com/pd/Jade-City-Audiobook/B0771W7K2Z?qid=1510895164&sr=1-1&ref=a_search_c4_1_1_srTtl"
+                    class="linkHoverColor">Audible
+                </a>
+            </div>
+        </div>
+        <div>
+            <a href="https://www.fondalee.com/contact/" class="linkHoverColor contactNavBar">Contact</a>
+        </div>
+    </div>
+        </nav>
+        <div class="firstLayerBg">
+        <div class="firstLayer" id="reveal">
+            <div class="firstLayerText">
+                <h1>Family is Duty.</h1>
+                <h1>Magic is Power.</h1>
+                <h1>And Honor is Everything.</h1>
+                <h1>Jade City begins an epic tale of family, honor, and those who live and die by the ancient laws of jade and blood.</h1>
+                <h1><a href="https://www.amazon.com/Jade-City-Fonda-Lee/dp/0316440868/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1494350029&sr=8-1" class="linkHoverColor">Welcome to the Twice Lucky.</a></h1>
+            </div>
+        </div>
+        </div>
+        <div class="secondLayer">
+            <div class="">
+                <img src="images/book-one.png" alt="DESCRIPTION HERE">
+            </div>
+            <div class="">
+                <img src="images/book-two.png" alt="DESCRIPTION HERE">
+            </div>
+            <div class="">
+                <img src="images/book-three.png" alt="DESCRIPTION HERE">
+            </div>
+            <div class="">
+                <img src="images/book-four.png" alt="DESCRIPTION HERE">
+            </div>
+        </div>
+        <div class="thirdLayer">
+            <div class="thirdLayerText">
+                <div class="thirdLayerQuote">&ldquo;Stylish and action-packed, full of ambitious families and guilt-ridden loves, <em>Jade City</em> is an epic drama reminiscent of
+                the best classic Hong Kong gangster films but set in a fantasy metropolis so gritty and well-imagined that you&rsquo;ll forget
+                you&rsquo;re reading a book.&rdquo;</div>
+                <div class="thirdLayerFrom">&mdash; Ken Liu</div>
+                <div class="thirdLayerFromSmall"> Award-winning fantasy author of <em>The Dandelion Dynasty</em></div>
+            </div>
+        </div>
+        <div class="fourthLayerBg">
+            <div class="fourthLayer">
+                <div class="fourthLayerTextBox">
+                    <div class="fourthLayerText">Does this sound like it would interest you?</div>
+                    <div id="fourthLayerTextSmall">Then, do not hesitate! Click the button, and buy now!</div>
+                </div>
+                <div><button><a href="https://www.amazon.com/Jade-City-Fonda-Lee/dp/0316440868/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1494350029&sr=8-1">Buy Now!</a></button></div>
+            </div>
+        </div>
+        <div class="footer">Page Made by A</div>
+    </body>
+    <script>
+        window.onscroll = function () {
+            scrollFunction()
+        };
+        function scrollFunction() {
+            if  (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                document.getElementById('navBar').style.backgroundColor = "rgba(0, 0, 0, 0.9)"
+                document.getElementById('reveal').style.opacity = "1"
+                document.getElementById('reveal').style.backgroundColor = "rgba(0, 0, 0, 0.8)"
+            } else {
+                document.getElementById('navBar').style.backgroundColor = "rgba(0, 0, 0, 1)";
+                document.getElementById('reveal').style.opacity = "0"
+                document.getElementById('reveal').style.backgroundColor = "rgba(0, 0, 0, 0)"
+            }
+            }
+    </script>
+</html>
+
