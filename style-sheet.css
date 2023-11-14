@@ -25,7 +25,7 @@ body, html {
     transition: 0.5s;
 }
 .lesson-format > div {
-    padding: 30px;
+    padding: 20px;
 }
 div > a {
     color: inherit;
@@ -127,4 +127,41 @@ div.header > * {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+.drop_down {
+    position: relative;
+    cursor: pointer;
+    z-index: 100;
+    display: inline-block;
+}
+.drop_down_content {
+    position: absolute;
+    display: none;
+    left: 170px;
+    top: 0;
+    background: rgba(80, 97, 113, 1);
+    border-radius: 2.5px;
+    padding: 0;
+    min-width: 100%;
+    z-index: 99;
+    text-align: center;
+    font-size: 0.7em;
+}
+.drop_down_content div {
+    padding: 0.8rem 0 0.4rem 0;
+    border-top: solid 1px whitesmoke;
+    text-decoration: none;
+    color: inherit;
+}
+.drop_down:hover .drop_down_content {
+    display: block;
+}
+
+.dropDownMenu a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 0.6rem;
+    border: none;
+    border-top: solid 1px whitesmoke;
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+
+<head>
+    <meta charset='utf-08'>
+    <title>Lesson 2 Sentences</title>
+    <link rel='stylesheet' href='style-sheet.css' type='text/css'>
+</head>
+
+<body>
+    <div class='header'>
+        <div>Lesson 2 Sentences</div>
+        <div id='header_subtext' class='link'><a href='index.html'> - return to home page - </a></div>
+    </div>
+    <div class='first_layer'>
+        <div class='buttons'>
+            <button id='previous_button'>Previous Card</button>
+            <button id='next_button'>Next Card</button>
+            <button>Shuffle Cards</button>
+        </div>
+        <div id='flashcard_small_font' class='flashcard'><span class='updated_output'></span></div>
+        <div class='footer'>Page Made by A</div>
+    </div>
+    <script src='script.js'></script>
+    <script>
+        const img_path = './images/lesson-2-sentences/';
+        const sentences_object = {
+            'YOU what-NAME?': `${img_path}YOU-what-NAME.gif`,
+            'YOUR NAME?': `${img_path}YOUR-NAME.gif`,
+            'DEAF YOU?': `${img_path}DEAF-YOU.gif`,
+            'STUDENT YOU?': `${img_path}STUDENT-YOU.gif`,
+            'YOUR TEACHER what-NAME?': `${img_path}YOUR-TEACHER-what-NAME.gif`,
+            'YOU UNDERSTAND S-HE?': `${img_path}YOU-UNDERSTAND-S-HE.gif`,
+            'INDEX[that-person] WHO?': `${img_path}INDEX-that-person-WHO.gif`,
+            'AGAIN, YOU what-NAME?': `${img_path}AGAIN-YOU-what-NAME.gif`,
+            'S-HE STUDENT S-HE?': `${img_path}S-HE-STUDENT-S-HE.gif`,
+            'THIS YOUR?': `${img_path}THIS-YOUR.gif`,
+            '[person, object] WHERE?': `${img_path}person-object-WHERE.gif`,
+            'NICE meet-YOU': `${img_path}NICE-meet-YOU.gif`,
+            'HEARING YOU?': `${img_path}HEARING-YOU.gif`,
+            'ASL TEACHER YOU?': `${img_path}ASL-TEACHER-YOU.gif`,
+            'YOU LEARN SIGN, WHERE?': `${img_path}YOU-LEARN-SIGN-WHERE.gif`,
+            'YOU LEARN SIGN, WHY?': `${img_path}YOU-LEARN-SIGN-WHY.gif`,
+            'T-H-A-N-K-S, how-SIGN?': `${img_path}THANKS-how-SIGN.gif`,
+            'STUDENT, S-HE?': `${img_path}STUDENT-S-HE.gif`,
+            'THEY LEARN SIGN?': `${img_path}THEY-LEARN-SIGN.gif`,
+            'YOUR TEACHER, WHO?': `${img_path}YOUR-TEACHER-WHO.gif`,
+            'YOU LIKE LEARN SIGN?': `${img_path}YOU-LIKE-LEARN-SIGN.gif`,
+            '': './images/dance.gif',
+        };
+
+        let sentences = create_key_list(sentences_object);
+        let flashcard_output = get_random_element(sentences);
+        current_output.textContent = flashcard_output;
+        next_card_button.addEventListener('click', () => {
+            shuffle_cards(sentences);
+        });
+        shuffle_cards_button.addEventListener('click', () => {
+            shuffle_cards(sentences);
+        });
+        flashcard.addEventListener('click', () => {
+            display_image(sentences_object);
+        });
+    </script>
+</body>
+
+</html>

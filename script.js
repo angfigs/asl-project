@@ -84,7 +84,7 @@ function add_image(image_path) {
     }, 10);
 };
 
-//function to remove img if exists
+//function to remove img if it exists
 function remove_image() {
     const existing_image = flashcard.querySelector('img');
     if (existing_image) {
