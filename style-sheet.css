@@ -56,7 +56,7 @@ div>a {
     align-items: center;
     justify-content: center;
 }
-div.header>* {
+div.header > * {
     font-size: 1.5em;
     text-align: center;
     padding-top: 15px;
@@ -85,7 +85,6 @@ div.header>* {
     background-color: rgba(140, 157, 173, 0.1);
     transition: background-color 0.3s ease;
     border-radius: 0.1em;
-    font-size: 6em;
     cursor: pointer;
 }
 #flashcard_small_font {
@@ -125,6 +124,9 @@ div.header>* {
         align-items: center;
         margin: 0 4px 0 4px;
     }
+    #flashcard_small_font {
+        font-size: 2.5em;
+    }
 }
 @media only screen and (min-height: 250px) {
     .first_layer {
@@ -162,18 +164,12 @@ div.header>* {
 }
 .drop_down_content div {
     padding: 0.8rem 0 0.4rem 0;
-    border-top: solid 1px whitesmoke;
     text-decoration: none;
     color: inherit;
+}
+.drop_down_content div:not(:first-child) {
+    border-top: solid 1px whitesmoke;
 }
 .drop_down:hover .drop_down_content {
     display: block;
-}
-.dropDownMenu a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    padding: 0.6rem;
-    border: none;
-    border-top: solid 1px whitesmoke;
 }
