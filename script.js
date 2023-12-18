@@ -74,15 +74,27 @@ function shuffle_cards(key_list) {
 function add_image(image_path) {
     const image = document.createElement('img');
     image.src = image_path;
-    image.style.width = '750px';
-    image.style.height = '550px';
     image.style.opacity = '0';
     image.style.transition = 'opacity 1s ease-in-out';
     flashcard.appendChild(image);
+    function update_image_size() {
+        const window_width = window.innerWidth;
+
+        if (window_width <= 785) {
+            image.style.width = '450px';
+            image.style.height = '550px';
+        } else {
+            image.style.width = '750px';
+            image.style.height = '550px';
+        };
+    };
+    update_image_size();
+    window.addEventListener('resize', update_image_size);
     setTimeout(() => {
         image.style.opacity = '1';
     }, 10);
-};
+}
+
 
 //function to remove img if it exists
 function remove_image() {
@@ -104,3 +116,18 @@ function display_image(object) {
         current_output.textContent = '';
     }
 };
+
+const link = document.getElementById('link'); // Replace with your actual selector
+
+link.addEventListener('mouseover', function () {
+    // Code to run when the mouse enters the element (hover starts)
+    link.style.color = 'darkslategray'; // Adjust as needed
+    link.style.boxShadow = '0 0 0.5rem 1.5px darkslategray';
+    link.style.transition = 'color 0.3s ease-in-out, box-shadow 0.3s ease-in-out' // Adjust the color and properties
+});
+
+link.addEventListener('mouseout', function () {
+    // Code to run when the mouse leaves the element (hover ends)
+    link.style.color = ''; // Reset to the default color or remove this line if not needed
+    link.style.boxShadow = ''; // Reset to the default box shadow or remove this line if not needed
+});

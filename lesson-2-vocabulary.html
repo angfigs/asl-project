@@ -1,70 +1,71 @@
 <!DOCTYPE html>
 
 <html lang='en'>
-    <head>
-        <meta charset='utf-08'>
-        <title>Lesson 2 Vocabulary</title>
-        <link rel='stylesheet' href='style-sheet.css' type='text/css'>
-    </head>
 
-    <body>
+<head>
+    <meta charset='utf-08'>
+    <title>Lesson 2 Vocabulary</title>
+    <link rel='stylesheet' href='style-sheet.css' type='text/css'>
+</head>
+
+<body>
+    <div class='first_layer'>
         <div class='header'>
             <div>Lesson 2 Vocabulary</div>
             <div id='header_subtext' class='link'><a href='index.html'> - return to home page - </a></div>
         </div>
-        <div class='first_layer'>
-            <div class='buttons'>
-                <button id='previous_button'>Previous Card</button>
-                <button id='next_button'>Next Card</button>
-                <button>Shuffle Cards</button>
-            </div>
-            <div id='flashcard_small_font' class='flashcard'><span class='updated_output'></span></div>
-            <div class='footer'>Page Made by A</div>
+        <div class='buttons'>
+            <button id='previous_button'>Previous Card</button>
+            <button id='next_button'>Next Card</button>
+            <button>Shuffle Cards</button>
         </div>
-        <script src='script.js'></script>
-        <script>
-            const vocab_words_object = {
-                'AGAIN':'',
-                'DEAF':'',
-                'UNDERSTAND': '',
-                'don\'t UNDERSTAND': '',
-                'HEARING': '',
-                'LEARN': '',
-                'LIKE (emotion)': '',
-                'MEANING': '',
-                'MEET': '',
-                'NAME': '',
-                'NICE, CLEAN': '',
-                'NO': '',
-                'SIGN (as in \'signing\')': '',
-                'SLOW': '',
-                'STUDENT': '',
-                'TEACHER': '',
-                'THANK-you': '',
-                'WHAT': '',
-                'WHERE': '',
-                'WHO': '',
-                'WHY': '',
-                'YES': '',
-                'YOUR': '',
-                'HE/SHE/IT/ME/YOU/THIS/that person there': '',
-                'THEY(plural)/THEM(plural)/THOSE/YOU-all':'',
-                'WE/us':'',
-            };
+        <div id='flashcard_small_font' class='flashcard'><span class='updated_output'></span></div>
+        <div class='footer'>Page Made by A</div>
+    </div>
+    <script src='script.js'></script>
+    <script>
+        const vocab_words_object = {
+            'AGAIN': '',
+            'DEAF': '',
+            'UNDERSTAND': '',
+            'don\'t UNDERSTAND': '',
+            'HEARING': '',
+            'LEARN': '',
+            'LIKE (emotion)': '',
+            'MEANING': '',
+            'MEET': '',
+            'NAME': '',
+            'NICE, CLEAN': '',
+            'NO': '',
+            'SIGN (as in \'signing\')': '',
+            'SLOW': '',
+            'STUDENT': '',
+            'TEACHER': '',
+            'THANK-you': '',
+            'WHAT': '',
+            'WHERE': '',
+            'WHO': '',
+            'WHY': '',
+            'YES': '',
+            'YOUR': '',
+            'HE/SHE/IT/ME/YOU/THIS/that person there': '',
+            'THEY(plural)/THEM(plural)/THOSE/YOU-all': '',
+            'WE/us': '',
+        };
 
-            let vocab_words = create_key_list(vocab_words_object);
-            let flashcard_output = get_random_element(vocab_words);
-            current_output.textContent = flashcard_output;
-            next_card_button.addEventListener('click', () => {
-                shuffle_cards(vocab_words);
-            });
-            shuffle_cards_button.addEventListener('click', () => {
-                shuffle_cards(vocab_words);
-            });
-            flashcard.addEventListener('click', () => {
-                display_image(vocab_words_object);
-            });
-        </script>
-    </body>
+        let vocab_words = create_key_list(vocab_words_object);
+        let flashcard_output = get_random_element(vocab_words);
+        current_output.textContent = flashcard_output;
+        next_card_button.addEventListener('click', () => {
+            shuffle_cards(vocab_words);
+        });
+        shuffle_cards_button.addEventListener('click', () => {
+            shuffle_cards(vocab_words);
+        });
+        flashcard.addEventListener('click', () => {
+            display_image(vocab_words_object);
+        });
+    </script>
+</body>
 
 </html>
