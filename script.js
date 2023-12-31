@@ -8,8 +8,8 @@ function create_key_list(object) {
             ;
         } else {
             key_list.push(key);
-        }
-    }
+        };
+    };
     return key_list;
 };
 
@@ -19,7 +19,7 @@ function shuffle_key_list(key_list) {
     list_index++;
     if (list_index === key_list.length) {
         list_index = 0;
-    }
+    };
     return key_list[list_index];
 };
 
@@ -58,7 +58,7 @@ previous_button.addEventListener('click', function () {
         flashcard_output = previous_flashcard_output[previous_flashcard_output.length - flashcard_index];
         current_output.textContent = flashcard_output;
         flashcard_index++;
-    }
+    };
 });
 
 //function to output random shuffle from the list of keys
@@ -79,7 +79,6 @@ function add_image(image_path) {
     flashcard.appendChild(image);
     function update_image_size() {
         const window_width = window.innerWidth;
-
         if (window_width <= 785) {
             image.style.width = '450px';
             image.style.height = '550px';
@@ -93,15 +92,14 @@ function add_image(image_path) {
     setTimeout(() => {
         image.style.opacity = '1';
     }, 10);
-}
-
+};
 
 //function to remove img if it exists
 function remove_image() {
     const existing_image = flashcard.querySelector('img');
     if (existing_image) {
         flashcard.removeChild(existing_image);
-    }
+    };
 };
 
 //function to display img on web page
@@ -114,20 +112,5 @@ function display_image(object) {
         const image_path = object[flashcard_output];
         add_image(image_path);
         current_output.textContent = '';
-    }
+    };
 };
-
-const link = document.getElementById('link'); // Replace with your actual selector
-
-link.addEventListener('mouseover', function () {
-    // Code to run when the mouse enters the element (hover starts)
-    link.style.color = 'darkslategray'; // Adjust as needed
-    link.style.boxShadow = '0 0 0.5rem 1.5px darkslategray';
-    link.style.transition = 'color 0.3s ease-in-out, box-shadow 0.3s ease-in-out' // Adjust the color and properties
-});
-
-link.addEventListener('mouseout', function () {
-    // Code to run when the mouse leaves the element (hover ends)
-    link.style.color = ''; // Reset to the default color or remove this line if not needed
-    link.style.boxShadow = ''; // Reset to the default box shadow or remove this line if not needed
-});
