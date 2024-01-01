@@ -19,9 +19,19 @@ body, html {
 }
 .lesson-format {
     background: rgba(140, 157, 173, 0.1);
-    font-size: 5em;
+    font-size: 4em;
     padding: 25px 70px 0 70px;
     border-radius: 0.1em;
+}
+.lesson-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+}
+.lesson-subtitle {
+    font-size: 2rem;
+    padding-bottom: 15px;
 }
 div > a {
     color: inherit;
@@ -30,7 +40,8 @@ div > a {
 .lesson-link:hover {
     color: darkslategray;
     box-shadow: 0 0 0.5rem 2px darkslategray;
-    transition: color 1s ease-in-out, box-shadow 1s ease-in-out;}
+    transition: color 1s ease-in-out, box-shadow 1s ease-in-out;
+}
 .link:hover {
     color: darkslategray;
     cursor: pointer;
@@ -139,34 +150,3 @@ div.header > * {
     align-items: center;
     width: 100%;
 }
-.drop_down {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-}
-.drop_down_content {
-    border-radius: 2.5px;
-    font-size: 1.5em;
-    opacity: 0;
-    visibility: hidden;
-    border: 2px solid;
-    min-width: 70%;
-    left: 75px;
-    position: absolute;
-    background: rgba(80, 97, 113, 1);
-    z-index: 1;
-}
-.drop_down:hover .drop_down_content {
-
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
-    visibility: visible;
-}
-.drop_down_content div {
-    padding: 0.8rem 0 0.4rem 0;
-    text-decoration: none;
-    color: inherit;
-}
-.drop_down_content div:not(:first-child) {
-    border-top: solid 1px whitesmoke;
-bas}
